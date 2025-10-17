@@ -1,0 +1,80 @@
+{
+  "info": {
+    "name": "GraonAI API v1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "1.0.0"
+  },
+  "item": [
+    {
+      "name": "Auth - Obtain JWT",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": { "raw": "{{baseUrl}}/api/v1/auth/jwt/create/", "host": [ "{{baseUrl}}" ], "path": ["api","v1","auth","jwt","create",""] },
+        "body": { "mode": "raw", "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"Admin@12345\"\n}" }
+      },
+      "response": []
+    },
+    {
+      "name": "Products - List",
+      "request": {
+        "method": "GET",
+        "header": [ { "key": "Authorization", "value": "Bearer {{access}}" } ],
+        "url": { "raw": "{{baseUrl}}/api/v1/products/", "host": ["{{baseUrl}}"], "path": ["api","v1","products",""] }
+      },
+      "response": []
+    },
+    {
+      "name": "Products - Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": { "raw": "{{baseUrl}}/api/v1/products/", "host": ["{{baseUrl}}"], "path": ["api","v1","products",""] },
+        "body": { "mode": "raw", "raw": "{\n  \"name\": \"Sample Product\",\n  \"amount\": \"123.00\"\n}" }
+      },
+      "response": []
+    },
+    {
+      "name": "Orders - Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": { "raw": "{{baseUrl}}/api/v1/orders/", "host": ["{{baseUrl}}"], "path": ["api","v1","orders",""] },
+        "body": { "mode": "raw", "raw": "{\n  \"customer\": 1,\n  \"seller\": 1,\n  \"items\": [\n    {\"product\": 1, \"quantity\": 2, \"unit_price\": \"99.00\"}\n  ]\n}" }
+      },
+      "response": []
+    },
+    {
+      "name": "Orders - List",
+      "request": {
+        "method": "GET",
+        "header": [ { "key": "Authorization", "value": "Bearer {{access}}" } ],
+        "url": { "raw": "{{baseUrl}}/api/v1/orders/?search=amoxy&ordering=-amount", "host": ["{{baseUrl}}"], "path": ["api","v1","orders",""], "query": [ {"key":"search","value":"amoxy"}, {"key":"ordering","value":"-amount"} ] }
+      },
+      "response": []
+    },
+    {
+      "name": "Orders - Top5",
+      "request": {
+        "method": "GET",
+        "header": [ { "key": "Authorization", "value": "Bearer {{access}}" } ],
+        "url": { "raw": "{{baseUrl}}/api/v1/orders/top5/", "host": ["{{baseUrl}}"], "path": ["api","v1","orders","top5",""] }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8000" },
+    { "key": "access", "value": "" }
+  ]
+}
+
+

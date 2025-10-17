@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+
+# Envs
+.env
+.venv
+venv/
+ENV/
+
+# Django
+*.log
+staticfiles/
+media/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Byte-compiled / compiled
+*.sqlite3-journal
+
+# Tooling
+.coverage
+htmlcov/
+pytestcache/
+
+# Cursor/agent
+.cursor/
+.agent-tools/
